@@ -1,0 +1,16 @@
+<head>
+  <title>parking</title>
+</head>
+
+<body>
+  <h1>Parkings</h1>
+  {{> hello}}
+</body>
+
+<template name="hello">
+  <button>Get parking data</button>
+  {{#each parkings}}
+    <p>nom: {{this.name}}</p>
+    <p>free: {{this.free}}</p>
+  {{/each}}
+</template>
