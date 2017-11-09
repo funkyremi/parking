@@ -12,10 +12,9 @@
     <div class="text-center">
       {{#each parkings}}
         <hr>
-        <p>Parking: {{this.name}}</p>
+        <p class={{statusColor this.status}}>Parking: {{this.name}}</p>
         <p>Places libres: {{formatNumber this.free}}</p>
         <p>Places totales: {{formatNumber this.total}}</p>
-        <p>Status: {{this.status}}</p>
       {{/each}}
     </div>
   </div>

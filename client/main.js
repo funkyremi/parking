@@ -4,6 +4,9 @@ Template.App.helpers({
   },
   formatNumber(str) {
     return Number(str);
+  },
+  statusColor(status) {
+    return status == 'Open' ? 'text-success' : 'text-danger';
   }
 });
 
