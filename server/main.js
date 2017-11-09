@@ -15,6 +15,10 @@ SyncedCron.add({
 });
 SyncedCron.start();
 
+Meteor.startup(() => {
+  Meteor.call('getParkingData');
+});
+
 Meteor.methods({
   'getParkingData'() {
     const data = HTTP.call('GET', 'https://data.montpellier3m.fr/api/3/action/package_show?id=90e17b94-989f-4d66-83f4-766d4587bec2').content;
