@@ -9,12 +9,13 @@
 <template name="App">
   <div class="container">
     <h1 class="text-center refresh">Parking Montpellier</h1>
-    <div class="text-center">
+    <hr>
+    <div class="row">
       {{#each parkings}}
-        <hr>
-        <p class={{statusColor this.status}}>Parking: {{this.name}}</p>
-        <p>Places libres: {{formatNumber this.free}}</p>
-        <p>Places totales: {{formatNumber this.total}}</p>
+        <div class="col-xs-6 col-md-4 text-center">
+          <h3>{{this.name}}</h3>
+          <canvas id={{this._id}}>{{doughnut}}</canvas>
+        </div>
       {{/each}}
     </div>
   </div>

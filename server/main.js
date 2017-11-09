@@ -1,6 +1,20 @@
 import { Meteor } from 'meteor/meteor';
 import { HTTP } from 'meteor/http';
 
+SyncedCron.config({
+  log: false,
+});
+SyncedCron.add({
+  name: 'Update parkings data',
+  schedule(parser) {
+    return parser.text('every 1 min');
+  },
+  job() {
+    Meteor.call('getParkingData');
+  },
+});
+SyncedCron.start();
+
 Meteor.methods({
   'getParkingData'() {
     const data = HTTP.call('GET', 'https://data.montpellier3m.fr/api/3/action/package_show?id=90e17b94-989f-4d66-83f4-766d4587bec2').content;
