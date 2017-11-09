@@ -9,10 +9,12 @@
 <template name="App">
   <div class="container">
     <h1 class="text-center refresh">Parking Montpellier</h1>
-    <hr>
-    <div class="row">
+    <br>
+    <input type="text" class="form-control" id="search" placeholder="Chercher un parking" autofocus>
+    <br>
+    <div class="row text-center">
       {{#each parkings}}
-        <div class="col-xs-6 col-md-4 parking text-center">
+        <div class="col-xs-6 col-md-4 parking">
           <h3>{{this.name}}</h3>
           <canvas id={{this._id}}>{{doughnut}}</canvas>
         </div>

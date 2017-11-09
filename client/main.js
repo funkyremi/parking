@@ -1,8 +1,13 @@
 import Chart from 'chart.js';
 
+Template.App.onCreated(() => {
+  Session.set('search', '');
+});
+
 Template.App.helpers({
   parkings() {
-    return Parkings.find();
+    const regex = new RegExp(Session.get('search'), 'i');
+    return Parkings.find({ name: regex });
   },
   formatNumber(str) {
     return Number(str);
@@ -52,4 +57,7 @@ Template.App.events({
   'click .refresh'(event, instance) {
     Meteor.call('getParkingData');
   },
+  'keyup #search'(event, instance) {
+    Session.set('search', event.target.value);
+  }
 });
