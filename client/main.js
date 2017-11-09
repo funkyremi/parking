@@ -1,16 +1,14 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
-
-import './main.html';
-
-Template.hello.helpers({
+Template.App.helpers({
   parkings() {
     return Parkings.find();
   },
+  formatNumber(str) {
+    return Number(str);
+  }
 });
 
-Template.hello.events({
-  'click button'(event, instance) {
+Template.App.events({
+  'click .refresh'(event, instance) {
     Meteor.call('getParkingData');
   },
 });

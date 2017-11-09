@@ -1,16 +1,22 @@
 <head>
-  <title>parking</title>
+  <title>Parking Montpellier</title>
 </head>
 
 <body>
-  <h1>Parkings</h1>
-  {{> hello}}
+  {{> App}}
 </body>
 
-<template name="hello">
-  <button>Get parking data</button>
-  {{#each parkings}}
-    <p>nom: {{this.name}}</p>
-    <p>free: {{this.free}}</p>
-  {{/each}}
+<template name="App">
+  <div class="container">
+    <h1 class="text-center refresh">Parking Montpellier</h1>
+    <div class="text-center">
+      {{#each parkings}}
+        <hr>
+        <p>Parking: {{this.name}}</p>
+        <p>Places libres: {{formatNumber this.free}}</p>
+        <p>Places totales: {{formatNumber this.total}}</p>
+        <p>Status: {{this.status}}</p>
+      {{/each}}
+    </div>
+  </div>
 </template>
