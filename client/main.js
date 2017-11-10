@@ -1,6 +1,7 @@
 import Chart from 'chart.js';
 
-Template.App.onCreated(() => {
+Template.App.onCreated(function() {
+  this.subscribe('Parkings');
   Session.set('search', '');
 });
 
@@ -40,6 +41,7 @@ Template.App.helpers({
     return status == 'Open' ? 'text-success' : 'text-danger';
   },
   doughnut() {
+
     const self = this;
     setTimeout(() => {
       const elem = document.getElementById(self._id);

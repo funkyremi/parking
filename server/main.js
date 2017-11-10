@@ -1,6 +1,12 @@
 import { Meteor } from 'meteor/meteor';
 import { HTTP } from 'meteor/http';
 
+Parkings.permit(['insert','update','remove']).never();
+
+Meteor.publish('Parkings',function(){
+  return Parkings.find();
+})
+
 SyncedCron.config({
   log: false,
 });
