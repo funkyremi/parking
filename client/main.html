@@ -1,5 +1,6 @@
 <head>
-  <title>Parking Montpellier</title>
+  <title>Parkings Montpellier Métropole</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 
 <body>
@@ -7,15 +8,16 @@
 </body>
 
 <template name="App">
-  <div class="container">
-    <h1 class="text-center refresh">Parking Montpellier</h1>
+  <div class="container text-center">
+    <img src="http://www.sigtv.fr/photo/art/grande/7609973-11754761.jpg?v=1427387905">
+    <h1 class="refresh">Parkings Montpellier Métropole</h1>
     <br>
     <input type="text" class="form-control" id="search" placeholder="Chercher un parking" autofocus>
     <br>
-    <div class="row text-center">
+    <div class="row">
       {{#each parkings}}
-        <div class="col-xs-6 col-md-4 parking">
-          <h3>{{this.name}}</h3>
+        <div class="col-xs-6 col-md-3 parking">
+          <h3>{{formatName this.name}}</h3>
           <canvas id={{this._id}}>{{doughnut}}</canvas>
         </div>
       {{/each}}

@@ -30,6 +30,9 @@ Template.App.onRendered(()=>{
 })
 
 Template.App.helpers({
+  formatName(name){
+    return name.replace(/Parking d?u?/, '');
+  },
   parkings() {
     const regex = new RegExp(Session.get('search'), 'i');
     return Parkings.find({ name: regex });
@@ -41,7 +44,6 @@ Template.App.helpers({
     return status == 'Open' ? 'text-success' : 'text-danger';
   },
   doughnut() {
-
     const self = this;
     setTimeout(() => {
       const elem = document.getElementById(self._id);
