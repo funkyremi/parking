@@ -4,6 +4,30 @@ Template.App.onCreated(() => {
   Session.set('search', '');
 });
 
+Template.App.onRendered(()=>{
+  Chart.pluginService.register({
+      beforeDraw: function (chart) {
+        if (chart.options.centertext) {
+            var width = chart.chart.width,
+                    height = chart.chart.height,
+                    ctx = chart.chart.ctx;
+
+            ctx.restore();
+            var fontSize = (height / 80).toFixed(2); // was: 114
+            ctx.font = fontSize + "em sans-serif";
+            ctx.textBaseline = "middle";
+
+            var text = chart.options.centertext, // "75%",
+                    textX = Math.round((width - ctx.measureText(text).width) / 2),
+                    textY = height / 2 - (chart.titleBlock.height);
+
+            ctx.fillText(text, textX, textY);
+            ctx.save();
+        }
+      }
+  });
+})
+
 Template.App.helpers({
   parkings() {
     const regex = new RegExp(Session.get('search'), 'i');
@@ -45,7 +69,8 @@ Template.App.helpers({
           animation: {
             animateScale: true,
             animateRotate: true
-          }
+          },
+          centertext: Number(self.free)
         }
       };
       const chart = new Chart(elem, config);
