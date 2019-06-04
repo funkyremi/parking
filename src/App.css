@@ -60,7 +60,11 @@
   border: 5px solid;
   border-radius: 8px;
   font-weight: bold;
-  margin: 60px;
+  /* margin: 60px; */
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-top: 60px;
+  margin-bottom: 60px;
   display: inline-block;
   padding-right: 10px;
   padding-left: 10px;

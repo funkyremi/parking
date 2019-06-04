@@ -85,14 +85,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <span className="logo">MONT<img src="p.jpg" className="animated pulse infinite logo-img" />ELLIER</span>
         <div className="container">
-          <span className="logo">MONT<img src="p.jpg" className="animated pulse infinite logo-img" />ELLIER</span>
           <div className="row">
             {this.state.parkings.map(p => (
               <div className="col-sm-4 col-md-3 margin-bottom" key={p.name}>
-                <h4 className={`text-bold ${this.statusStyle(p.status)}`}>
+                <h5 className={`text-bold ${this.statusStyle(p.status)}`}>
                   {p.name.replace(/Parking\sd?u?\s?/g, '')}
-                </h4>
+                </h5>
                 <Doughnut
                   options={{
                     legend: {
