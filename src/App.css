@@ -36,14 +36,33 @@
   margin-bottom: 30px;
 }
 
-.text-open{
+.text-open {
   color: rgb(75, 192, 192);
 }
 
-.text-closed{
+.text-closed {
   color: rgb(255, 99, 132);
 }
 
-.text-bold{
+.text-bold {
   font-weight: bold;
+}
+
+.logo-img {
+  height: 1.4em;
+  margin: 4px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.logo {
+  color: #3258a1;
+  border: 6px solid;
+  border-radius: 8px;
+  font-weight: bold;
+  margin: 60px;
+  display: inline-block;
+  padding-right: 14px;
+  padding-left: 14px;
+  padding-top: 5px;
 }
