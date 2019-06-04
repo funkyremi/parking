@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/parking/static/css/main.e8dc1d25.chunk.css",
+    "main.js": "/parking/static/js/main.2fb6ecdb.chunk.js",
+    "main.js.map": "/parking/static/js/main.2fb6ecdb.chunk.js.map",
+    "runtime~main.js": "/parking/static/js/runtime~main.9c5cc316.js",
+    "runtime~main.js.map": "/parking/static/js/runtime~main.9c5cc316.js.map",
+    "static/js/2.683f65be.chunk.js": "/parking/static/js/2.683f65be.chunk.js",
+    "static/js/2.683f65be.chunk.js.map": "/parking/static/js/2.683f65be.chunk.js.map",
+    "index.html": "/parking/index.html",
+    "precache-manifest.643c6bfda9e19e7d4a1455a9f43a7270.js": "/parking/precache-manifest.643c6bfda9e19e7d4a1455a9f43a7270.js",
+    "service-worker.js": "/parking/service-worker.js",
+    "static/css/main.e8dc1d25.chunk.css.map": "/parking/static/css/main.e8dc1d25.chunk.css.map"
+  }
+}

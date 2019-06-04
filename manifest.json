@@ -1,0 +1,9 @@
+{
+  "short_name": "Parkings de Montpellier",
+  "name": "Parkings de Montpellier",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
