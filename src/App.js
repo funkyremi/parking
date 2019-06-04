@@ -86,7 +86,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="container">
-          <h1 className="logo">MONT<img src="p.jpg" className="animated pulse infinite logo-img" />ELLIER</h1>
+          <span className="logo">MONT<img src="p.jpg" className="animated pulse infinite logo-img" />ELLIER</span>
           <div className="row">
             {this.state.parkings.map(p => (
               <div className="col-sm-4 col-md-3 margin-bottom" key={p.name}>
