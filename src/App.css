@@ -31,3 +31,19 @@
     transform: rotate(360deg);
   }
 }
+
+.margin-bottom {
+  margin-bottom: 30px;
+}
+
+.text-open{
+  color: rgb(75, 192, 192);
+}
+
+.text-closed{
+  color: rgb(255, 99, 132);
+}
+
+.text-bold{
+  font-weight: bold;
+}
