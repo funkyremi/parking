@@ -86,7 +86,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="container">
-          <img src="/montpellier-logo.png" alt="Montpellier Parkings" />
+          <img src="%PUBLIC_URL%/montpellier-logo.png" alt="Montpellier Parkings" />
           <br/>
           <br/>
           <h1 className="refresh">Parkings Montpellier Métropole</h1>
