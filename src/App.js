@@ -91,7 +91,7 @@ class App extends React.Component {
             {this.state.parkings.map(p => (
               <div className="col-sm-4 col-md-3 margin-bottom" key={p.name}>
                 <h4 className={`text-bold ${this.statusStyle(p.status)}`}>
-                  {p.name.replace(/Parking\sd?u?\s?/g, '')} ({p.free})
+                  {p.name.replace(/Parking\sd?u?\s?/g, '')}
                 </h4>
                 <Doughnut
                   options={{
