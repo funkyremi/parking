@@ -85,39 +85,41 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <img src="/montpellier-logo.png" alt="Montpellier Parkings" />
-        <br/>
-        <br/>
-        <h1 className="refresh">Parkings Montpellier Métropole</h1>
-        <br />
-        <br />
-        <div className="row">
-          {this.state.parkings.map(p => (
-            <div className="col-sm-4 col-md-3 margin-bottom" key={p.name}>
-              <h4 className={`text-bold ${this.statusStyle(p.status)}`}>
-                {p.name.replace(/Parking\s/g, '')} ({p.free})
-              </h4>
-              <Doughnut
-                options={{
-                  legend: {
-                    display: false
-                  }
-                }}
-                data={{
-                  datasets: [
-                    {
-                      data: [p.total - p.free, p.free],
-                      backgroundColor: [
-                        "rgb(255, 99, 132)",
-                        "rgb(75, 192, 192)"
-                      ]
+        <div className="container">
+          <img src="/montpellier-logo.png" alt="Montpellier Parkings" />
+          <br/>
+          <br/>
+          <h1 className="refresh">Parkings Montpellier Métropole</h1>
+          <br />
+          <br />
+          <div className="row">
+            {this.state.parkings.map(p => (
+              <div className="col-sm-4 col-md-3 margin-bottom" key={p.name}>
+                <h4 className={`text-bold ${this.statusStyle(p.status)}`}>
+                  {p.name.replace(/Parking\s/g, '')} ({p.free})
+                </h4>
+                <Doughnut
+                  options={{
+                    legend: {
+                      display: false
                     }
-                  ],
-                  labels: ["Places prises", "Places restantes"]
-                }}
-              />
-            </div>
-          ))}
+                  }}
+                  data={{
+                    datasets: [
+                      {
+                        data: [p.total - p.free, p.free],
+                        backgroundColor: [
+                          "rgb(255, 99, 132)",
+                          "rgb(75, 192, 192)"
+                        ]
+                      }
+                    ],
+                    labels: ["Places prises", "Places restantes"]
+                  }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
