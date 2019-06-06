@@ -12,7 +12,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      parkings: []
+      parkings: [],
+      openMap: false,
     };
   }
   componentWillMount() {
@@ -106,13 +107,17 @@ class App extends React.Component {
                       parkings: parkingsArray
                     });
                     const elem = document.getElementById(id);
+                    const self = this;
                     Pressure.set(elem, {
                       change: function(force, event) {
                         const size = 1 + force / 2;
                         document.getElementById(
                           id
                         ).style.transform = `scale(${size})`;
-                        if (force === 1) {
+                        if (force === 1 && !self.state.openMap) {
+                          self.setState({
+                            openMap: true,
+                          })
                           console.log("Open navigation", name);
                         }
                       },
@@ -120,6 +125,9 @@ class App extends React.Component {
                         document.getElementById(
                           id
                         ).style.transform = `scale(1)`;
+                        self.setState({
+                          openMap: false,
+                        })
                       }
                     });
                   }
@@ -135,7 +143,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <span id="test" className="logo">
+        <span id="test" className="logo noselect default-cursor">
           MONT
           <img
             src="p.jpg"
@@ -151,10 +159,14 @@ class App extends React.Component {
                 className="col-xs-12 col-sm-6 col-md-4 col-xl-3 margin-bottom"
                 key={p.id}
               >
-                <h5 className={`text-bold ${this.statusStyle(p.status)}`}>
+                <h5
+                  className={`default-cursor noselect text-bold ${this.statusStyle(
+                    p.status
+                  )}`}
+                >
                   {p.name.replace(/Parking\sd?u?\s?/g, "")}
                 </h5>
-                <div className="pie-div" id={p.id}>
+                <div id={p.id}>
                   <Doughnut
                     options={{
                       legend: {
