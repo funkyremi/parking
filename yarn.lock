@@ -7697,6 +7697,11 @@ prepend-http@^1.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
   integrity sha1-1PRWKwzjaW5BrFLQ4ALlemNdxtw=
 
+pressure@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/pressure/-/pressure-2.1.2.tgz#5a7a58b7aab90f48db283012e470c1a6f9567aef"
+  integrity sha512-ZSargPrrtyDGsWKFQvk3e5i/JM24pRTlb7Wu6RNtQiSzSAwdNw7hmB4+tQ/V2AhC3u4YGx3q2kMYEgtr/6ctXQ==
+
 pretty-bytes@^5.1.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-5.2.0.tgz#96c92c6e95a0b35059253fb33c03e260d40f5a1f"
