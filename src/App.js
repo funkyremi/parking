@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Chart, Doughnut } from "react-chartjs-2";
+import ReactLoading from "react-loading";
 import Pressure from "pressure";
 
 const refreshInterval = 30000;
@@ -52,6 +53,26 @@ class App extends React.Component {
       this.updateData();
     }, refreshInterval);
   }
+  formatParkingName(parkingName) {
+    return parkingName.replace(/Parking\sd?u?\s?/g, "");
+  }
+  sortParkingsArray(parkingsArray) {
+    return parkingsArray.sort((a, b) => {
+      if (this.formatParkingName(a.name) < this.formatParkingName(b.name)) {
+        return -1;
+      }
+      if (this.formatParkingName(a.name) > this.formatParkingName(b.name)) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+  getMapLink(locationName) {
+    return `http://maps.apple.com/?daddr=${locationName
+      .split(" ")
+      .filter(Boolean)
+      .join("+")}&dirflg=d&t=h`;
+  }
   updateData() {
     window
       .fetch(`${corsProxy}${parkingsUrl}`)
@@ -91,23 +112,8 @@ class App extends React.Component {
                       free,
                       total
                     });
-                    parkingsArray.sort((a, b) => {
-                      if (
-                        a.name.replace(/Parking\sd?u?\s?/g, "") <
-                        b.name.replace(/Parking\sd?u?\s?/g, "")
-                      ) {
-                        return -1;
-                      }
-                      if (
-                        a.name.replace(/Parking\sd?u?\s?/g, "") >
-                        b.name.replace(/Parking\sd?u?\s?/g, "")
-                      ) {
-                        return 1;
-                      }
-                      return 0;
-                    });
                     this.setState({
-                      parkings: parkingsArray
+                      parkings: this.sortParkingsArray(parkingsArray)
                     });
                   } else {
                     const parkingsArray = this.state.parkings;
@@ -118,23 +124,8 @@ class App extends React.Component {
                       free,
                       total
                     });
-                    parkingsArray.sort((a, b) => {
-                      if (
-                        a.name.replace(/Parking\sd?u?\s?/g, "") <
-                        b.name.replace(/Parking\sd?u?\s?/g, "")
-                      ) {
-                        return -1;
-                      }
-                      if (
-                        a.name.replace(/Parking\sd?u?\s?/g, "") >
-                        b.name.replace(/Parking\sd?u?\s?/g, "")
-                      ) {
-                        return 1;
-                      }
-                      return 0;
-                    });
                     this.setState({
-                      parkings: parkingsArray
+                      parkings: this.sortParkingsArray(parkingsArray)
                     });
                     const elem = document.getElementById(id);
                     const self = this;
@@ -148,10 +139,12 @@ class App extends React.Component {
                           self.setState({
                             openMap: true
                           });
-                          const link = `http://maps.apple.com/?daddr=${name
-                            .split(" ")
-                            .join("+")}&dirflg=d&t=h`;
-                          window.open(link, "_self");
+                          console.log(window.location);
+                          setTimeout(() => {
+                            window.location = self.getMapLink(name);
+                          }, 5);
+                          document.getElementById(id).style.transform =
+                            "scale(1)";
                         }
                       },
                       end: function() {
@@ -185,6 +178,15 @@ class App extends React.Component {
           ELLIER
         </span>
         <div className="container">
+          {this.state.parkings.length === 0 && (
+            <ReactLoading
+              type={"spinningBubbles"}
+              color={"#3258a1"}
+              className={"preloader"}
+              height={"30%"}
+              width={"30%"}
+            />
+          )}
           <div className="row">
             {this.state.parkings.map(p => (
               <div
@@ -196,7 +198,7 @@ class App extends React.Component {
                     p.status
                   )}`}
                 >
-                  {p.name.replace(/Parking\sd?u?\s?/g, "")}
+                  {this.formatParkingName(p.name)}
                 </h5>
                 <div id={p.id}>
                   <Doughnut
