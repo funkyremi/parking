@@ -13,7 +13,7 @@ class App extends React.Component {
     super();
     this.state = {
       parkings: [],
-      openMap: false,
+      openMap: false
     };
   }
   componentWillMount() {
@@ -91,6 +91,21 @@ class App extends React.Component {
                       free,
                       total
                     });
+                    parkingsArray.sort((a, b) => {
+                      if (
+                        a.name.replace(/Parking\sd?u?\s?/g, "") <
+                        b.name.replace(/Parking\sd?u?\s?/g, "")
+                      ) {
+                        return -1;
+                      }
+                      if (
+                        a.name.replace(/Parking\sd?u?\s?/g, "") >
+                        b.name.replace(/Parking\sd?u?\s?/g, "")
+                      ) {
+                        return 1;
+                      }
+                      return 0;
+                    });
                     this.setState({
                       parkings: parkingsArray
                     });
@@ -102,6 +117,21 @@ class App extends React.Component {
                       status,
                       free,
                       total
+                    });
+                    parkingsArray.sort((a, b) => {
+                      if (
+                        a.name.replace(/Parking\sd?u?\s?/g, "") <
+                        b.name.replace(/Parking\sd?u?\s?/g, "")
+                      ) {
+                        return -1;
+                      }
+                      if (
+                        a.name.replace(/Parking\sd?u?\s?/g, "") >
+                        b.name.replace(/Parking\sd?u?\s?/g, "")
+                      ) {
+                        return 1;
+                      }
+                      return 0;
                     });
                     this.setState({
                       parkings: parkingsArray
@@ -116,18 +146,20 @@ class App extends React.Component {
                         ).style.transform = `scale(${size})`;
                         if (force === 1 && !self.state.openMap) {
                           self.setState({
-                            openMap: true,
-                          })
-                          console.log("Open navigation", name);
+                            openMap: true
+                          });
+                          const link = `http://maps.apple.com/?daddr=${name
+                            .split(" ")
+                            .join("+")}&dirflg=d&t=h`;
+                          window.open(link, "_self");
                         }
                       },
                       end: function() {
-                        document.getElementById(
-                          id
-                        ).style.transform = `scale(1)`;
+                        document.getElementById(id).style.transform =
+                          "scale(1)";
                         self.setState({
-                          openMap: false,
-                        })
+                          openMap: false
+                        });
                       }
                     });
                   }
