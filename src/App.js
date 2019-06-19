@@ -183,8 +183,8 @@ class App extends React.Component {
               type={"spinningBubbles"}
               color={"#3258a1"}
               className={"preloader"}
-              height={"30%"}
-              width={"30%"}
+              height={"2em"}
+              width={"2em"}
             />
           )}
           <div className="row">
@@ -234,6 +234,11 @@ class App extends React.Component {
               </div>
             ))}
           </div>
+        </div>
+        <div className="footer">
+          <a href="https://github.com/funkyremi">Made with <span role="img" aria-label="love">️❤️</span> in Montpellier</a>
+          <br/>
+          <a href="https://data.montpellier3m.fr">Sources : Open Data Montpellier Méditerranée Métropole</a>
         </div>
       </div>
     );

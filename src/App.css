@@ -18,7 +18,10 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.footer {
+  font-size: 0.8em;
+  margin-top: 40px;
+}
 .App-link {
   color: #61dafb;
 }
