@@ -183,8 +183,8 @@ class App extends React.Component {
               type={"spinningBubbles"}
               color={"#3258a1"}
               className={"preloader"}
-              height={"2em"}
-              width={"2em"}
+              height={"5em"}
+              width={"5em"}
             />
           )}
           <div className="row">
