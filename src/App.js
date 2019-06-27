@@ -5,7 +5,7 @@ import ReactLoading from "react-loading";
 import Pressure from "pressure";
 
 const refreshInterval = 30000;
-const corsProxy = "https://cors.io/?";
+const corsProxy = "https://api.codetabs.com/v1/proxy?quest=";
 const parkingsUrl =
   "https://data.montpellier3m.fr/api/3/action/package_show?id=90e17b94-989f-4d66-83f4-766d4587bec2";
 
