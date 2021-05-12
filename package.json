@@ -4,7 +4,7 @@
   "private": false,
   "homepage": "http://funkyremi.github.io/parking",
   "dependencies": {
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "pressure": "^2.1.2",
     "react": "^16.8.6",
     "react-chartjs-2": "^2.7.6",
